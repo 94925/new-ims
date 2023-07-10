@@ -1,0 +1,29 @@
+
+<form  [formGroup]="essayForm" *ngIf="!isPreview">
+    <div class="row form-group">
+        <div class="col-sm-4" ml-3>
+            <label for="name"> Essay:</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="text" id="name" class="form-control" placeholder="essay " name="name"
+                formControlName="question">
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-sm-4" ml-3>
+            <label for="name"> Description:</label>
+        </div>
+        <div class="col-sm-6">
+            <textarea  cols="30" rows="5" class="w-100 " formControlName="desc"></textarea>
+        </div>
+    </div>
+    <button class="btn btn-primary ml-5" (click)="submit()">Submit</button>
+</form>
+
+<div class="card" style="width:70rem;margin:auto;" *ngFor="let option of submittedOptions">
+    <div class="card-body">
+        <h1>Question:{{option?.question}}</h1>
+        <h1>Description:{{option?.desc}}</h1>
+    </div>
+</div>

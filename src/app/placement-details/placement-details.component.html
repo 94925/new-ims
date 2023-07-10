@@ -1,0 +1,59 @@
+
+<form [formGroup]="detailsForm" *ngIf="!isPreview">
+    <div class="row form-group">
+        <div class="col-sm-4" ml-3>
+            <label for="name"> Name:</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="text" id="name" class="form-control"  name="name" formControlName="name">
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-sm-4" ml-3>
+            <label for="name"> CompanyName:</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="text" id="name" class="form-control"  name="name" formControlName="companyName">
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-4" ml-3>
+            <label for="name"> Salary:</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="text" id="name" class="form-control"  name="name" formControlName="salary">
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-4" ml-3>
+            <label for="name"> Date of Join:</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="date" id="name" class="form-control"  name="name" formControlName="date">
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-4" ml-3>
+            <label for="name"> Experience:</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="text" id="name" class="form-control"  name="name" formControlName="experience">
+        </div>
+    </div>
+    <button class="btn btn-primary ml-5" (click)="submit()">Submit</button>
+</form>
+
+<div class="card" style="width:70rem;margin:auto;" *ngFor="let option of submittedOptions">
+    <div class="card-body">
+        <h1>Name:{{option?.name}}</h1>
+        <h1>CompanyName:{{option?.companyName}}</h1>
+        <h1>
+            Salary:{{option?.salary}}
+        </h1>
+        <h1>Date:{{option?.date}}</h1>
+        <h1>Experience:{{option?.experience}}</h1>
+        
+
+    </div>
+</div>

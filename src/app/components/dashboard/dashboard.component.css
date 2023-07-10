@@ -1,0 +1,25 @@
+.parent{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background-color: rgb(245, 243, 241)
+
+}
+.child{
+    width: 17%;
+    height: 100%;
+    background-color: black;
+    color: aliceblue;
+
+}
+.child > h4{
+cursor: pointer;
+}
+.child > h4:hover{
+    color: brown;
+}
+.main{
+    width: 83%;
+    height: 100%;
+ overflow: auto; 
+}

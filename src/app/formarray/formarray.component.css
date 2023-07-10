@@ -1,0 +1,12 @@
+/* container{
+    height: 90%;
+    width: 90%;
+} */
+
+.quiz-container input,
+.name-filed{
+    height: 2.5rem;
+}
+label{
+    font-size:x-large;
+}

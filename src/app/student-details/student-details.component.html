@@ -1,0 +1,33 @@
+
+<h3>Personal details:</h3>
+<p>Name:{{student?.name}}</p>
+<p>
+    <img src="{{student.avatar}}" width="100px" height="100px">
+</p>
+<p>Gender:{{student?.gender}}</p>
+<p>Mobile:{{student?.mobile}}</p>
+<p>Email:{{student?.email}}</p>
+<p>Batch:{{student?.batch}}</p>
+<h3>Address information</h3>
+<p>City:{{student?.address?.city}}</p>
+<p>mandal:{{student?.address?.mandal}}</p>
+<p>district:{{student?.address?.district}}</p>
+<p>State:{{student?.address?.state}}</p>
+<p>Pincode:{{student?.address?.pincode}}</p>
+<h3>Education Details</h3>
+<div *ngFor="let eduction of student?.educations">
+    <p>qualification:{{eduction?.qualification}}</p>
+    <p>year:{{eduction?.year}}</p>
+    <p>percentage:{{eduction?.percentage}}</p>
+</div>
+
+<h3>Company Details</h3>
+<p>Company name:{{student?.company?.name}}</p>
+<p>Location:{{student?.company?.location}}</p>
+<p>Package:{{student?.company?.package}}</p>
+<p>offerdate:{{student?.company?.offerdate}}</p>
+<h3>Referral information</h3>
+<p>sourcetype:{{student?.sourcetype }}</p>
+
+<p *ngIf="student.sourcetype === 'direct'" >{{student?.sourceFrom }}</p>
+<p  *ngIf="student.sourcetype === 'refer'" >{{student?.referalName }}</p>

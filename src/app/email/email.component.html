@@ -1,0 +1,79 @@
+<form [formGroup]="emailForm" *ngIf="!isPreview">
+    <div class="row form-group">
+        <div class="col-sm-4" ml-3>
+            <label for="name"> Letter:</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="text" id="name" class="form-control" placeholder="type " name="name" formControlName="letter">
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-sm-4" ml-3>
+            <label for="name"> To:</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="text" id="name" class="form-control" placeholder="to" name="name" formControlName="to">
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-sm-4" ml-3>
+            <label for="name"> CC:</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="text" id="name" class="form-control" placeholder="cc " name="name" formControlName="cc">
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-sm-4" ml-3>
+            <label for="name"> BCC:</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="text" id="name" class="form-control" placeholder="bcc " name="name" formControlName="bcc">
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-sm-4" ml-3>
+            <label for="name"> Subject:</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="text" id="name" class="form-control" placeholder="subject" name="name"
+                formControlName="subject">
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-4" ml-3>
+            <label for="name"> Body:</label>
+        </div>
+        <div class="col-sm-6">
+            <textarea  cols="30" rows="5" class="w-100 " formControlName="body"></textarea>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-sm-4" ml-3>
+            <label for="name"> From:</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="text" id="name" class="form-control" placeholder="from " name="name" formControlName="from">
+        </div>
+    </div>
+    <button class="btn btn-primary ml-5" (click)="submit()">Submit</button>
+</form>
+<div class="card" style="width:70rem;margin:auto;" *ngFor="let option of submittedOptions">
+    <div class="card-body">
+        <h1>LETTER:{{option?.letter}}</h1>
+        <h1>TO:{{option?.to}}</h1>
+        <h1>
+            CC:{{option?.cc}}
+        </h1>
+        <h1>BCC:{{option?.bcc}}</h1>
+        <h1>SUBJECT:{{option?.subject}}</h1>
+        <h1>BODY:{{option?.body}}</h1>
+        <h1>FROM:{{option?.from}}</h1>
+
+    </div>
+</div>

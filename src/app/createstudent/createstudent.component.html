@@ -1,0 +1,244 @@
+<h1 class="ml-4 mt-2 text-center">Create Student Form:</h1>
+
+<form [formGroup]="studentForm " class="ml-4">
+    <div class="row form-group">
+        <div class="col-sm-4">
+            <label for="name"> Name:</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="text" id="name" class="form-control" placeholder="Enter name" name="name"
+                formControlName="name">
+        </div>
+    </div>
+
+
+    <div class="error" *ngIf="studentForm.get('name')?.touched && studentForm.get('name')?.invalid">
+        <p *ngIf="studentForm.get('name')?.errors?.['required']">This field is required.</p>
+        <p *ngIf="studentForm.get('name')?.errors?.['min']">min 3 chars required</p>
+        <p *ngIf="studentForm.get('name')?.errors?.['max']">max 15 chars allowed</p>
+    </div>
+    <br>
+    <div class="row form-group">
+        <div class="col-sm-4">
+            <label>Gender:</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="radio" name="gender" formControlName="gender" value="male">
+            <label class="mr-4">Male</label>
+
+            <input type="radio" name="gender" formControlName="gender" value="female">
+            <label>Female</label>
+        </div>
+    </div>
+    <br>
+
+    <div class="row form-group">
+        <div class="col-sm-4">
+            <label for="name"> Mobile: </label>
+        </div>
+        <div class="col-sm-6">
+            <input type="number" id="mobile" class="form-control" placeholder="Enter number" name="mobile"
+                formControlName="mobile">
+        </div>
+    </div>
+
+    <div class="error" *ngIf="studentForm.get('mobile')?.touched && studentForm.get('mobile')?.invalid">
+        <p *ngIf="studentForm.get('mobile')?.errors?.['required']">This field is required.</p>
+        <p *ngIf="studentForm.get('mobile')?.errors?.['min']">min 10 numbers required</p>
+        <p *ngIf="studentForm.get('mobile')?.errors?.['max']">max 10 numbers required</p>
+    </div>
+    <br>
+
+    <div class="row form-group">
+        <div class="col-sm-4">
+            <label for="email:"> Email:</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="text" id="email" class="form-control" placeholder="Enter email" name="email"
+                formControlName="email">
+        </div>
+    </div>
+    <div class="error" *ngIf="studentForm.get('email')?.touched && studentForm.get('email')?.invalid">
+        <p *ngIf="studentForm.get('email')?.errors?.['required']">This field is required.</p>
+    </div>
+    <br>
+
+
+    <div class="row form-group">
+        <div class="col-sm-4">
+            <label for="batch"> Batch: </label>
+        </div>
+        <div class="col-sm-6">
+            <input type="date" id="batch" class="form-control" placeholder="batch" name="batch" formControlName="batch">
+        </div>
+    </div>
+    <div class="error" *ngIf="studentForm.get('batch')?.touched && studentForm.get('batch')?.invalid">
+        <p *ngIf="studentForm.get('batch')?.errors?.['required']">This field is required.</p>
+    </div>
+
+    <br>
+
+    <h2>Address:</h2>
+    <div formGroupName="address">
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label for="city"> city: </label>
+            </div>
+            <div class="col-sm-6">
+                <input type="text" id="city" class="form-control" placeholder="city" name="city" formControlName="city">
+            </div>
+        </div>
+        <br>
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label for="mandal"> mandal: </label>
+            </div>
+            <div class="col-sm-6">
+                <input type="text" id="mandal" class="form-control" placeholder="mandal" name="mandal"
+                    formControlName="mandal">
+            </div>
+        </div>
+        <br>
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label for="district"> district: </label>
+            </div>
+            <div class="col-sm-6">
+                <input type="text" id="district" class="form-control" placeholder="district" name="district"
+                    formControlName="district">
+            </div>
+        </div>
+        <div class="error"
+            *ngIf="studentForm.get('address')?.get('district')?.touched && studentForm.get('address')?.get('district')?.invalid">
+            <p *ngIf="studentForm.get('address')?.get('district')?.errors?.['required']">This field is required.</p>
+        </div>
+
+        <br>
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label for="state"> state: </label>
+            </div>
+            <div class="col-sm-6">
+                <input type="text" id="state" class="form-control" placeholder="state" name="state"
+                    formControlName="state">
+            </div>
+        </div>
+        <br>
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label for="pincode"> pincode: </label>
+            </div>
+            <div class="col-sm-6">
+                <input type="text" id="pincode" class="form-control" placeholder="pincode" name="pincode"
+                    formControlName="pincode">
+            </div>
+        </div>
+        <div class="error"
+            *ngIf="studentForm.get('address')?.get('pincode')?.touched && studentForm.get('address')?.get('pincode')?.invalid">
+            <p *ngIf="studentForm.get('address')?.get('pincode')?.errors?.['required']">This field is required.</p>
+            <p *ngIf="studentForm.get('address')?.get('pincode')?.errors?.['min']">min 6 numbers required</p>
+            <p *ngIf="studentForm.get('address')?.get('pincode')?.errors?.['max']">max 6 numbers required</p>
+        </div>
+    </div>
+
+    <button class="btn btn-primary mb-4" (click)="add()"> Add Education Details</button>
+
+    <div formArrayName="educations">
+        <div *ngFor="let education of educationsFormArray?.controls;let i=index">
+            <div formGroupName="{{i}}">
+                <input type="text"  formControlName="qualification" placeholder="qualification">
+                <br>
+                <input type="text" formControlName="year" placeholder="year">
+                <br>
+                <input type="text" formControlName="percentage" placeholder="percentage">
+                <br>
+                <div class="error"
+                    *ngIf="studentForm.get('educations')?.get('percentage')?.touched && studentForm.get('educations')?.get('percentage')?.invalid">
+                    <p *ngIf="studentForm.get('educations')?.get('percentage')?.errors?.['required']">This field is
+                        required.</p>
+                    <p *ngIf="studentForm.get('educations')?.get('percentage')?.errors?.['min']">min 0 numbers required
+                    </p>
+                    <p *ngIf="studentForm.get('educations')?.get('percentage')?.errors?.['max']">max 3 numbers required
+                    </p>
+                </div>
+
+                <button class="btn btn-danger mt-3" (click)="delete(i)">delete</button>
+            </div>
+        </div>
+    </div>
+
+    <h2>Company</h2>
+    <div formGroupName="company">
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label for="name"> Name: </label>
+            </div>
+            <div class="col-sm-6">
+                <input type="text" id="name" class="form-control" placeholder="name" name="name" formControlName="name">
+            </div>
+        </div><br>
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label for="location"> Location: </label>
+            </div>
+            <div class="col-sm-6">
+                <input type="text" id="location" class="form-control" placeholder="location" name="location"
+                    formControlName="location">
+            </div>
+        </div><br>
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label for="package"> Package: </label>
+            </div>
+            <div class="col-sm-6">
+                <input type="text" id="package" class="form-control" placeholder="package" name="package"
+                    formControlName="package">
+            </div>
+        </div><br>
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label for="offerdate"> Offerdate: </label>
+            </div>
+            <div class="col-sm-6">
+                <input type="date" id="offerdate" class="form-control" placeholder="offerdate" name="offerdate"
+                    formControlName="offerdate">
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row form-group">
+        <div class="col-sm-4">
+            <label>Source type:</label>
+        </div>
+        <div class="col-sm-8">
+            <input type="radio" name="sourcetype" formControlName="sourcetype" value="direct">
+            <label class="mr-4">Direct</label>
+            <input type="radio" name="sourcetype" formControlName="sourcetype" value="refer">
+            <label>Refer</label>
+        </div>
+        <br>
+        <div *ngIf="studentForm.get('sourcetype')?.value=='direct'">
+            <br>
+            <div class="src">
+                <label class="src ">sourceFrom:</label>
+
+                <input type="text" formControlName="sourceFrom">
+            </div>
+        </div>
+        <div *ngIf="studentForm.get('sourcetype')?.value=='refer'">
+            <br>
+            <div class="src">
+                <label>referalName:</label>
+                <input type="text" formControlName="referalName">
+            </div>
+
+        </div>
+    </div>
+    <br>
+    <h4>
+        <button class="btn btn-primary text-center" (click)="submit()">submit</button>
+    </h4>
+
+
+
+</form>

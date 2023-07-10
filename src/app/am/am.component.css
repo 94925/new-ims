@@ -1,0 +1,24 @@
+mat-slide-toggle{
+    margin-left: 200px;
+}
+
+.extra{
+    flex: 1 1 auto;
+}
+.logo{
+    margin-left: 20px;
+}
+/* .example-container {
+    position: absolute;
+    top: 65px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #eee;
+    
+  } */
+  .parent{
+    width: 100vw;
+    height: 100vh;
+    background-color :aquamarine;
+  }

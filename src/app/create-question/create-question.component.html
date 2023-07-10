@@ -1,0 +1,70 @@
+<div class="container">
+    <div style="padding-top: 30px;">
+
+        <div class="card" style="width:70rem;margin:auto;" *ngIf="!isPreview">
+            <div class="card-body">
+                <form [formGroup] = "userForm">
+                    <div class="col pl-0 py-3">
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input placeholder="enter question" class="form-control w-100" formControlName="search">
+                        </div>
+                    </div>
+
+                    <div class="col pl-0 py-3">
+                        <button class="btn btn-primary" (click)="addOptions()">Add options</button>
+                    </div>
+
+                    <div formArrayName="quiz" class="quiz-container">
+                        <div *ngFor="let item of quiz.controls; let i = index" [formGroupName] ="i">
+                            <div class="row align-items-center mb-4">
+                                <div class="col-8">
+                                    <input placeholder="options" class="form-control w-100" formControlName="options">
+                                </div>
+                                <div class="col-2">
+                                    <input placeholder="marks" class="form-control w-100" formControlName="marks">
+                                </div>
+                                <div class="col-2">
+                                    <button class="btn btn-danger w-100" (click)="removeOption(i)">Cancel</button>
+                                    <!-- <button class="btn btn-danger " (click) = "deleteForm(i)">delete question</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col py-3" >
+                <button class="btn btn-primary " (click) = "submit()">submit</button>
+                
+                <!-- <button class="btn btn-danger " (click) = "deleteForm()">delete question</button>
+                     -->
+            </div>
+
+            <!-- <div class="col py-4">
+                <button class="btn btn-danger" (click) ="delete()">delete</button>
+            </div> -->
+        </div>
+
+        <div class="card" style="width:70rem;margin:auto;" *ngIf="isPreview">
+            <div class="card-body">
+
+                <div>
+                    <br>
+                    <!-- <h4> Options and Marks:</h4> -->
+                    <h1>{{submittedOptions?.search}}</h1>
+                    <div *ngFor="let option of submittedOptions.quiz">
+                        <input type ="checkbox">
+                        <label>{{option.options}}</label>
+                        <label>marks:{{option.marks}}</label>
+                        <br>
+                    </div>
+                </div>
+                <button class="btn btn-primary" (click)="edit()">edit</button>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

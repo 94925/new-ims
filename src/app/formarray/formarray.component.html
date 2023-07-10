@@ -1,0 +1,81 @@
+
+<!-- <button class="btn btn-primary" (click)="addquestions()">Add questions</button> -->
+
+
+<div class="container">
+  <button class="btn btn-primary" (click)="addquestions()">Add questions</button>
+  <div style="padding-top: 30px;" [formGroup]="examForm">
+    <div style="width:70rem;margin:auto;" *ngFor="let question of questionsFormArray.controls;let i=index">
+      <div formGroupName ="{{i}}">
+        <h1>{{i*1}}</h1>
+
+        <app-create-question></app-create-question>
+
+         <button (click)="delete(i)">delete</button> 
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+  <div style="padding-top: 30px;">
+    <div class="card" style="width: 70rem; margin: auto;">
+      <div class="card-body">
+        <form [formGroup]="userForm">
+          <div class="col pl-0 py-3">
+            <button class="btn btn-primary" (click)="addquestions()">Add questions</button>
+          </div>
+          <div class="row">
+            <div class="col">
+              <input placeholder="search" class="form-control w-100" formControlName="search">
+            </div>
+          </div>
+
+            <div class="col pl-0 py-3">
+              <button class="btn btn-primary" (click)="addOptions()">Add options</button>
+            </div>
+
+            <div formArrayName="quiz" class="quiz-container">
+              <div *ngFor="let item of quiz.controls; let i = index" [formGroupName]="i">
+                <div class="row align-items-center mb-4">
+                  <div class="col-8">
+                    <input placeholder="options" class="form-control w-100" formControlName="options">
+                  </div>
+                  <div class="col-2">
+                    <input placeholder="marks" class="form-control w-100" formControlName="marks">
+                  </div>
+                  <div class="col-2">
+                    <button class="btn btn-danger w-100" (click)="removeOption(i)">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </form>
+      </div>
+      <div class="col py-3">
+        <button class="btn btn-primary " (click)="submit()">Submit</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+  
+

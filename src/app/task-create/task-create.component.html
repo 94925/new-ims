@@ -1,0 +1,17 @@
+
+
+
+<div class="container">
+    <button class="btn btn-primary" (click)="createTask()">Create-task</button>
+    <div style="padding-top: 30px;" [formGroup]="taskcreateForm">
+      <div style="width:70rem;margin:auto;" *ngFor="let taskit of taskitFormArray.controls;let i=index">
+        <div formGroupName ="{{i}}">
+           <h1>{{i*1}}</h1> 
+          <app-creation></app-creation>
+  
+          
+  
+        </div>
+      </div>
+    </div>
+  </div>
